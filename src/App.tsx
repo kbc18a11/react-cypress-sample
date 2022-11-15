@@ -1,49 +1,19 @@
-import { FormEvent, useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Name } from './page/Name';
+import { Names } from './page/Names';
 
-
-const App = (): JSX.Element => {
-    const [name, setName] = useState("");
-
-    const [names, setNames] = useState([
-        '孫',
-        'じーさん',
-        'げべ',
-        '校長',
-        '最強さん',
-        'ちゃむらい'
-    ])
-
-    /**
-     * 名前一覧の表示タグの生成
-     * 
-     * @returns {JSX.Element[]} 
-     */
-    const generateDisplayedName = (): JSX.Element[] => {
-        return names.map((name, nameIndex) => <div id={String(nameIndex)}>{name}</div>);
-    }
-
-    const handleChangName = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value);
-    };
-
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        setNames([...names, name])
-    }
-
-    return (
-        <div className="App">
-            <h1>名前一覧</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" value={name} name="name" onChange={handleChangName} />
-                <button>名前の追加</button>
-            </form>
-            <div className='names'>
-                {generateDisplayedName()}
-            </div>
-        </div>
-    );
-}
+const App = (): JSX.Element =>
+    <BrowserRouter>
+        <Routes>
+            <Route
+                path={`/`}
+                element={<Names />}
+            />
+            <Route
+                path={`/name`}
+                element={<Name />}
+            />
+        </Routes>
+    </BrowserRouter>;
 
 export default App;
