@@ -10,7 +10,7 @@ const App = (): JSX.Element =>
                 element={<Names />}
             />
             <Route
-                path={`/name`}
+                path={`/name/:name`}
                 element={<Name />}
             />
         </Routes>

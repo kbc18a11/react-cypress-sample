@@ -20,9 +20,9 @@ export const Names = (): JSX.Element => {
      * @returns {JSX.Element[]} 
      */
     const generateDisplayedName = (): JSX.Element[] => {
-        return names.map((name, nameIndex) =>
-            <div id={String(nameIndex)}>
-                <Link to={'/name'}>
+        return names.map((name, i) =>
+            <div id={String(i)}>
+                <Link to={`/name/${name}`}>
                     {name}
                 </Link>
             </div>
