@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Name } from './page/Name';
-import { Names } from './page/Names';
+import { Name } from 'page/Name';
+import { Names } from 'page/Names';
 
 const App = (): JSX.Element =>
     <BrowserRouter>

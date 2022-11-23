@@ -6,9 +6,9 @@ export const Names = (): JSX.Element => {
     const [name, setName] = useState("");
 
     const [names, setNames] = useState([
-        '孫',
         'じーさん',
-        'げべ',
+        '孫',
+        'ゲベ',
         '校長',
         '最強さん',
         'ちゃむらい'
@@ -21,7 +21,7 @@ export const Names = (): JSX.Element => {
      */
     const generateDisplayedName = (): JSX.Element[] => {
         return names.map((name, i) =>
-            <div id={String(i)}>
+            <div id={`name-${i}`}>
                 <Link to={`/name/${name}`}>
                     {name}
                 </Link>
